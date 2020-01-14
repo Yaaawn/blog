@@ -10,6 +10,7 @@ module.exports = {
     port: 8888, // 用于 dev server 的端口
     temp: '/path/to/@vuepress/core/.temp', // 客户端文件的临时目录
     dest: 'dist', // vuepress build 的输出目录
+    repo: 'https://github.com/Yaaawn/blog',
     // 主题配置
     // theme: ''
     themeConfig: {
