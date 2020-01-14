@@ -9,7 +9,7 @@ module.exports = {
     host: '0.0.0.0', // 用于 dev server 的主机名
     port: 8888, // 用于 dev server 的端口
     temp: '/path/to/@vuepress/core/.temp', // 客户端文件的临时目录
-    dest: '.vuepress/dist', // vuepress build 的输出目录
+    dest: 'dist', // vuepress build 的输出目录
     // 主题配置
     // theme: ''
     themeConfig: {
@@ -40,6 +40,11 @@ module.exports = {
         // displayAllHeaders: false, // 显示所以页面的标题链接
         lastUpdated: 'Last Updated',
         smoothScroll: true, // 启用页面滚动效果
+        repo: 'https://github.com/Yaaawn/blog',
+        repoLabel: 'GitHub',
+        editLinks: true,
+        docsDir: 'docs',
+        docsBranch: 'master'
     },
     evergreen: true
 }

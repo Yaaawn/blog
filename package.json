@@ -6,9 +6,13 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "gh-pages -d dist",
+    "deploy:build": "vuepress build docs && gh-pages -d dist"
   },
   "keywords": [],
   "author": "YSJ",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
+  }
 }
