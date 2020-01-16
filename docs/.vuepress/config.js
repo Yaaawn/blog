@@ -1,3 +1,6 @@
+const moment = require('moment')
+const { nav, sidebar } = require('./config/routes')
+
 module.exports = {
     // 基础配置
     base: '/blog/', // 部署站点的基础路径，默认'/'
@@ -10,42 +13,35 @@ module.exports = {
     port: 8888, // 用于 dev server 的端口
     temp: '/path/to/@vuepress/core/.temp', // 客户端文件的临时目录
     dest: 'dist', // vuepress build 的输出目录
-    repo: 'https://github.com/Yaaawn/blog',
+
     // 主题配置
     // theme: ''
     themeConfig: {
         logo: '/user-avatar.jpg',
-        // navbar: true,
-        nav: [
-            { text: 'Home', link: '/' },
-            { text: '每日·基础', link: '/views/base/' },
-            { text: '每周·进阶', link: '/views/advance/' },
-            { text: '算法', link: '/views/algorithm/' }
-        ],
-        sidebar: {
-            '/views/base/': [
-                ''
-            ],
-            '/views/advance/': [
-                ''
-            ],
-            '/views/algorithm/': [
-                ''
-            ],
-            // fallback
-            '/': [
-                ''
-            ]
-        },
-        sidebarDepth: 2,
-        // displayAllHeaders: false, // 显示所以页面的标题链接
-        lastUpdated: 'Last Updated',
+        nav,
+        sidebar,
+        sidebarDepth: 1,
+        activeHeaderLinks: true,
+        lastUpdated: '上次更新',
         smoothScroll: true, // 启用页面滚动效果
         repo: 'https://github.com/Yaaawn/blog',
+        docsDir: 'docs',
+        docsBranch: 'master',
         repoLabel: 'GitHub',
         editLinks: true,
-        docsDir: 'docs',
-        docsBranch: 'master'
+        editLinkText: '帮助我们改善此页面！'
     },
-    evergreen: true
+    evergreen: true,
+
+    plugins: [
+        [
+            '@vuepress/last-updated',
+            {
+                transformer: (timestamp, lang) => {
+                    moment.locale(lang)
+                    return moment(timestamp).format('YYYY-MM-DD HH:mm:ss')
+                }
+            }
+        ]
+    ]
 }
