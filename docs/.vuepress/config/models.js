@@ -5,12 +5,12 @@ const paperGroup = [
     },
     {
         key: 'base',
-        title: '每日·基础',
-        children: []
+        title: '基础',
+        children: ['PART1: JavaScript 基础']
     },
     {
         key: 'advance',
-        title: '每周·进阶',
+        title: '进阶',
         children: ['实战']
     },
     {
